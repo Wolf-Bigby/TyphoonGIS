@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+{% for message in get_flashed_messages() %}
+    <div class="alert">{{ message }}</div>
+{% endfor %}
+<body>
+<h3>Login</h3>
+<form method="post">
+    Username<br>
+    <input type="text" name="username" required><br><br>
+    Password<br>
+    <!-- 密码输入框的 type 属性使用 password，会将输入值显示为圆点 -->
+    <input type="password" name="password" required><br><br>
+    <input class="btn" type="submit" name="submit" value="Submit">
+</form>
+<h2>
+    <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='03_台风.png') }}">
+    Typhoon list
+</h2>
+<h2></h2>
+<p>{{ Typhoons|length }} Titles</p>
+<form method="post">
+    Name <input type="text" name="name" autocomplete="off" required>
+    Ename<input type="text" name="ename" autocomplete="off" required>
+    begin_time<input type="DateTime" name="begin_time" autocomplete="off" required>
+    end_time<input type="DateTime" name="end_time" autocomplete="off" required>
+    <input class="btn" type="submit" name="submit" value="Add">
+</form>
+<table border="1">
+    <tr>
+        {% for field in fields %}  {# 迭代 movies 变量 #}
+            <th>{{ field }} </th>  {# 等同于 movie['title'] #}
+        {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
+    </tr>
+    {% for typhoon in Typhoons %}
+    <tr>
+        <td>{{ typhoon.name }}</td>
+        <td>{{ typhoon.ename }}</td>
+        <td>{{ typhoon.begin_time }}</td>
+        <td>{{ typhoon.end_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<img alt="Typhoon" class="typhoon" src="{{ url_for('static', filename='R-C.gif') }}">
+</body>
+</html>
