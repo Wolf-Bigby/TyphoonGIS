@@ -1,6 +1,6 @@
 import click
 from typhoonGIS import db,app
-from models import  User,Typhoon
+from typhoonGIS.models import Typhoon,User
 import  pandas as pd
 @app.cli.command()
 #数据输入函数
