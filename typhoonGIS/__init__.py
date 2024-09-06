@@ -19,4 +19,4 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 关闭对模型修改的
 db = SQLAlchemy(app)
 
 #导入需要用的的自定义库
-from typhoonGIS import views, errors, commands
+from typhoonGIS import views, errors, commands,models
