@@ -1,4 +1,4 @@
-from tyhoonGIS import  db
+from typhoonGIS import  db
 from sqlalchemy import Column, DateTime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
