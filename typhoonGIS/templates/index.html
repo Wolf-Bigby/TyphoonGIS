@@ -10,20 +10,21 @@
     <div class="alert">{{ message }}</div>
 {% endfor %}
 <body>
-<h3>Login</h3>
-<form method="post">
-    Username<br>
-    <input type="text" name="username" required><br><br>
-    Password<br>
-    <!-- 密码输入框的 type 属性使用 password，会将输入值显示为圆点 -->
-    <input type="password" name="password" required><br><br>
-    <input class="btn" type="submit" name="submit" value="Submit">
-</form>
+
+{#<h3>Login</h3>#}
+{#<form method="post">#}
+{#    Username<br>#}
+{#    <input type="text" name="username" required><br><br>#}
+{#    Password<br>#}
+{#    <!-- 密码输入框的 type 属性使用 password，会将输入值显示为圆点 -->#}
+{#    <input type="password" name="password" required><br><br>#}
+{#    <input class="btn" type="submit" name="submit" value="Submit">#}
+{#</form>#}
 <h2>
     <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='03_台风.png') }}">
     Typhoon list
 </h2>
-<h2></h2>
+
 <p>{{ Typhoons|length }} Titles</p>
 <form method="post">
     Name <input type="text" name="name" autocomplete="off" required>

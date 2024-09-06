@@ -1,7 +1,7 @@
-from tyhoonGIS import app, db
+from typhoonGIS import app, db
 from flask import Flask, render_template, request, redirect, url_for,flash
-from tyhoonGIS.models import Typhoon,User
-#编辑视图函数
+from typhoonGIS.models import Typhoon,User
+#编辑台风数据显示的视图函数
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':  # 判断是否是 POST 请求
@@ -11,7 +11,6 @@ def index():
         begin_time = request.form.get('begin_time')
         end_time = request.form.get('end_time')
         t=Typhoon(name=name, ename=ename, begin_time=begin_time, end_time=end_time)
-
         db.session.add(t)  # 添加到数据库会话
         db.session.commit()  # 提交数据库会话
         flash('Item created.')  # 显示成功创建的提示
